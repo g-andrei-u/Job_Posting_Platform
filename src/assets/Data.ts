@@ -11,7 +11,7 @@ export const jobs = [
         picture: prospa,
         company: 'Prospa',
         position: 'Backend Engineer',
-        salary: '$60k - $90k',
+        salary: 70,
         skills: ['Python', 'API', 'Django']
     },
 
@@ -20,7 +20,7 @@ export const jobs = [
         picture: legal,
         company: 'Legal',
         position: 'Frontend Engineer',
-        salary: '$65k - $85k',
+        salary: 85,
         skills: ['React', 'Typescript', 'HTML/CSS']
     },
 
@@ -29,7 +29,7 @@ export const jobs = [
         picture: netflix,
         company: 'Netflix',
         position: 'Fullstack Engineer',
-        salary: '$62k - $95k',
+        salary: 95,
         skills: ['Java', 'PHP', 'C#']
     },
 
@@ -38,7 +38,7 @@ export const jobs = [
         picture: netflix,
         company: 'Netflix',
         position: 'Senior Frontend Engineer',
-        salary: '$85k - $115k',
+        salary: 85,
         skills: ['Vue.js', 'Javascript', 'HTML/CSS']
     },
 
@@ -47,7 +47,7 @@ export const jobs = [
         picture: google,
         company: 'Google',
         position: 'Tech Lead - Frontend Engineer',
-        salary: '$100k - $155k',
+        salary: 155,
         skills: ['Angular', 'Goo', 'HTML/CSS']
     },
 
@@ -56,7 +56,7 @@ export const jobs = [
         picture: meta,
         company: 'Meta',
         position: 'Junior Fullstack Engineer',
-        salary: '$82k - $105k',
+        salary: 105,
         skills: ['React', 'PHP', 'C#']
     }
 ]

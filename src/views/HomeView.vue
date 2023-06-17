@@ -66,7 +66,7 @@ createApp({
       </section>
 
       <section class="jobs">
-        <div v-for="job in filteredJobs" :key="job.id" class="job">
+        <RouterLink :to="`/job/${job.id}`" v-for="job in filteredJobs" :key="job.id" class="job">
           <img :src="job.picture" />
           <div>
             <h4 style="font-weight: 500;">{{ job.company }}</h4>
@@ -76,7 +76,7 @@ createApp({
               <p v-for="skill in job.skills" style="background-color: #f9f9f9; padding: 2px 10px; border-radius: 15px; margin: 5px; font-weight: 500;">{{ skill }}</p>
             </div>
           </div>
-        </div>
+        </RouterLink>
       </section>
 
       <section class="post-job">
@@ -189,6 +189,7 @@ createApp({
 
 .job {
   background-color: white;
+  color: black;
   padding: 5px 10px;
   display: flex;
   align-items: center;

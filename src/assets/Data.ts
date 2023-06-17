@@ -3,6 +3,7 @@ import legal from '../assets/Images/legal.jpg';
 import netflix from '../assets/Images/Netflix.png';
 import google from '../assets/Images/Google.jpg';
 import meta from '../assets/Images/meta.png';
+import adidas from '../assets/Images/adidas.jpg';
 
 
 export const jobs = [
@@ -58,5 +59,23 @@ export const jobs = [
         position: 'Junior Fullstack Engineer',
         salary: 105,
         skills: ['React', 'PHP', 'C#']
+    },
+
+    {
+        id: 7,
+        picture: adidas,
+        company: 'Adidas',
+        position: 'Full Stack Developer',
+        salary: 75,
+        skills: ['Node.js', 'React', 'Java']
+    },
+
+    {
+        id: 8,
+        picture: adidas,
+        company: 'Adidas',
+        position: 'Senior Full Stack Developer',
+        salary: 100,
+        skills: ['PHP', 'SQL', 'Node.js']
     }
 ]

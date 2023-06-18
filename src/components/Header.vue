@@ -9,7 +9,8 @@
             <h3></h3>
         </div>
         <nav>
-            <RouterLink class="find-jobs-button" to="/">Find Jobs</RouterLink>
+            <RouterLink class="home-button" to="/">Home</RouterLink>
+            <RouterLink class="find-jobs-button" to="/jobs">Find Jobs</RouterLink>
             <RouterLink class="about-button" to="/about">About Us</RouterLink>
         </nav>
     </div>
@@ -24,13 +25,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 15px 5px 20px;
+    padding: 5px 30px 5px 30px;
 }
 
 .about-button {
     background-color: rgb(0, 134, 89);
     color: white;
     font-size: 17px;
+    font-weight: 500;
     padding: 5px;
     border: 2px solid rgb(0, 134, 89);
     border-radius: 7px;
@@ -45,6 +47,7 @@
 .find-jobs-button {
     color: rgb(0, 134, 89);
     font-size: 17px;
+    font-weight: 500;
     padding: 5px;
     border: 2px solid rgb(0, 134, 89);
     border-radius: 7px;
@@ -54,6 +57,19 @@
 .find-jobs-button:hover {
     background: rgb(0, 134, 89);
     color: white;
+}
+
+.home-button {
+    color: rgb(215, 162, 0);
+    font-size: 17px;
+    font-weight: 500;
+    padding: 7px;
+    border-radius: 7px;
+    margin: 0 10px;
+}
+
+.home-button:hover {
+    background-color: rgba(215, 161, 0, 0.3);
 }
 
 </style>

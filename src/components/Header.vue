@@ -17,6 +17,7 @@
 </template>
 
 <style scoped>
+
 .header {
     box-sizing: border-box;
     height: 100%;
@@ -40,6 +41,7 @@
 }
 
 .about-button:hover {
+    cursor: pointer;
     background-color: white;
     color: rgb(0, 134, 89);
 }
@@ -55,6 +57,7 @@
 }
 
 .find-jobs-button:hover {
+    cursor: pointer;
     background: rgb(0, 134, 89);
     color: white;
 }
@@ -69,6 +72,7 @@
 }
 
 .home-button:hover {
+    cursor: pointer;
     background-color: rgba(215, 161, 0, 0.3);
 }
 

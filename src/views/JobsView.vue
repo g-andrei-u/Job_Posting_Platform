@@ -7,12 +7,37 @@ const text = ref('');
 const inputCompany = ref('');
 const inputJobPosition = ref('');
 const inputSalary = ref(0);
-const inputSkills = ref('')
-const popup = ref(false);
+const inputSkills = ref('');
+const inputLevel = ref('');
+const popupForm = ref(false);
+const popupFilters = ref(false);
+const filterStyleColor = ref('rgb(122, 122, 122)');
+
+const searchSalary = ref(0);
+const searchLevel = ref('');
+const activeFilter = ref(false)
 
 const filteredJobs = computed(() => {
-  return jobs.filter(job => job.position.toLowerCase().includes(text.value.toLowerCase())) &&  jobs.filter(job => job.company.toLowerCase().includes(text.value.toLowerCase()))
-})
+
+  if (!activeFilter.value) {
+    return jobs.filter(job => 
+    job.position.toLowerCase().includes(text.value.toLowerCase()) ||
+    job.company.toLowerCase().includes(text.value.toLowerCase())
+    )
+  }  else {
+    return jobs.filter(job => 
+    job.level.toLowerCase().includes(searchLevel.value.toLowerCase()))
+  }
+});
+
+const filteredAction = () => {
+  popupFilters.value = false;
+  activeFilter.value = true
+};
+
+const cancelFiltered = () => {
+  activeFilter.value = false
+};
 
 const addingJob = () => {
   if ( inputJobPosition.value && inputCompany.value ) {
@@ -23,10 +48,11 @@ const addingJob = () => {
         company: inputCompany.value,
         position: inputJobPosition.value,
         salary: inputSalary.value,
-        skills: inputSkills.value.split(',').map(skill => skill.trim())
+        skills: inputSkills.value.split(',').map(skill => skill.trim()),
+        level: inputLevel.value
       }
     );
-    popup.value = false;
+    popupForm.value = false;
     text.value = inputCompany.value
     inputCompany.value = '';
     inputJobPosition.value = '';
@@ -35,31 +61,63 @@ const addingJob = () => {
   } else {
     alert("Please fill in all the required fields.");
  }
-}
+};
 
-const setPopup = () => {popup.value = !popup.value}
+const setPopupForm = () => {
+  popupForm.value = !popupForm.value
+};
+
+const setPopupFilters = () => {
+  popupFilters.value = !popupFilters.value
+};
+
+const buttonStyleOver = () => {
+  filterStyleColor.value = 'rgb(0, 134, 89)'
+};
+
+const buttonStyleNotOver = () => {
+  filterStyleColor.value = 'rgb(122, 122, 122)'
+};
 
 createApp({
   data() {
     return {
       text,
       filteredJobs,
-      popup,
+      popupForm,
     }
   },
   methods: {
-    setPopup,
-    addingJob
+    setPopupForm,
+    setPopupFilters,
+    addingJob,
+    buttonStyleOver,
+    buttonStyleNotOver,
+    filteredAction,
+    cancelFiltered
   }
 }).mount('#main')
 
 </script>
 
 <template>
-  <main :style="{overflowY: popup ? 'hidden' : 'visible'}" id="main">
+  <main :style="{overflowY: popupForm || popupFilters ? 'hidden' : 'visible'}" id="main">
     <div>
       <section class="second-header">
-        <button>Filters</button>
+        <div>
+          <button 
+          :style="{color: filterStyleColor, borderColor: filterStyleColor}" 
+          @mouseover="buttonStyleOver" 
+          @mouseleave="buttonStyleNotOver"
+          @click="setPopupFilters"
+          >Filters</button>
+          
+          <button
+          v-if="activeFilter" 
+          :style="{color: filterStyleColor, borderColor: filterStyleColor}"
+          @click="cancelFiltered"
+          >Cancel Filter</button>
+        </div>
         <div class="search-bar">
           <input type="text" v-model="text" placeholder="Search...">
         </div>
@@ -85,15 +143,15 @@ createApp({
           <p>💼 Placement in Arc job fairs</p>
           <p>💬 Unlimited candidate messaging</p>
           <p>📋 Company profile & branding</p>
-          <button class="button" @click="setPopup">Post Jobs</button>
+          <button class="button" @click="setPopupForm">Post Jobs</button>
         </div>
       </section>
     </div>
 
-    <div v-if="popup" class="form-popup">
+    <div v-if="popupForm" class="form-popup">
       <div class="form-job">
         <div style="grid-column: 1/3; grid-row: 1/2; display: flex; justify-content: flex-end; align-items: center;">
-          <button @click="setPopup" style="background-color: white; font-size: 25px; border: 0px; cursor: pointer;">X</button>
+          <button @click="setPopupForm" style="position: relative; top: -15px; right: 10px; background-color: white; font-size: 28px; width: 0px; border: 0px; cursor: pointer;">X</button>
         </div>
 
         <div class="form-description">
@@ -115,20 +173,60 @@ createApp({
           <br>
           <label style="font-size: 20px;">Experiance level</label>
           <div>
-            <input type="radio" id="Junior" name="experiance" value="Junior">
+            <input v-model="inputLevel" type="radio" id="Junior" name="experiance" value="Junior">
             <label for="Junior">Junior</label>
           </div>
           <div>
-            <input type="radio" id="Mid" name="experiance"  value="Mid">
+            <input v-model="inputLevel" type="radio" id="Mid" name="experiance"  value="Mid">
             <label for="Mid">Mid</label>
           </div>
           <div>
-            <input type="radio" id="Senior" name="experiance"  value="Senior">
+            <input v-model="inputLevel" type="radio" id="Senior" name="experiance"  value="Senior">
             <label for="Senior">Senior</label>
           </div>
           <br>
           <button class="button" @click="addingJob">Submit Job Post</button>
         </form>
+      </div>
+    </div>
+
+    <div v-if="popupFilters" class="filters-popup">
+      <div class="filters">
+        <h1>Filters</h1>
+        <div style="margin: 8% 0;">
+          <label style="font-size: 20px;">Experiance level</label>
+          <div>
+            <input v-model="searchLevel" type="radio" id="Junior" name="experiance" value="Junior">
+            <label for="Junior"> Junior Level</label>
+          </div>
+          <div>
+            <input v-model="searchLevel" type="radio" id="Mid" name="experiance"  value="Mid">
+            <label for="Mid"> Mid Level</label>
+          </div>
+          <div>
+            <input v-model="searchLevel" type="radio" id="Senior" name="experiance"  value="Senior">
+            <label for="Senior"> Senior Level</label>
+          </div>
+          <br>
+          <label style="font-size: 20px;">Salary Range</label>
+          <div>
+            <input v-model="searchSalary" type="radio" id="low" name="salary" value="low">
+            <label for="low"> 0k - 50k</label>
+          </div>
+          <div>
+            <input v-model="searchSalary" type="radio" id="medium" name="salary"  value="medium">
+            <label for="medium"> 50k - 100k</label>
+          </div>
+          <div>
+            <input v-model="searchSalary" type="radio" id="high" name="salary"  value="high">
+            <label for="high"> 100k ++</label>
+          </div>
+        </div>
+
+        <div>
+          <button class="apply-button" @click="filteredAction">Apply</button>
+          <button class="cancel-button" @click="setPopupFilters">Cancel</button>
+        </div>
       </div>
     </div>
   </main>
@@ -157,14 +255,15 @@ createApp({
 }
 
 .second-header button {
+  cursor: pointer;
   background-color: white;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
-  color: rgb(122, 122, 122);
   padding: 8px 25px;
-  border: 1px solid rgb(137, 137, 137);
+  border: 1px solid;
   border-radius: 20px;
   margin: 0 10px;
+  transition: 300ms;
 }
 
 .search-bar {
@@ -232,20 +331,21 @@ createApp({
 
 .form-popup {
   position: fixed;
-  top: 10%;
-  left: 25%;
+  top: 7%;
+  left: 20%;
   background-color: white;
-  width: 50%;
-  height: 80%;
+  width: 60%;
+  height: 86%;
   border-radius: 7px;
   box-shadow: 0 0 0 10000px rgba(0, 0, 0, 0.797);
 }
 
 .form-job {
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 10% 1fr;
-  padding: 15px;
+  padding: 25px;
 }
 
 .form-description {
@@ -275,6 +375,64 @@ createApp({
   margin: 5px 0;
   border: 1px solid rgb(137, 137, 137);
   border-radius: 7px;
+}
+
+
+/* FILTERS */
+
+.filters-popup {
+  position: fixed;
+  top: 15%;
+  left: 30%;
+  background-color: white;
+  width: 40%;
+  height: 70%;
+  border-radius: 7px;
+  box-shadow: 0 0 0 10000px rgba(0, 0, 0, 0.797);
+}
+
+.filters {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px 35px;
+}
+
+.cancel-button {
+  background-color: white;
+  color: rgb(137, 137, 137);
+  font-size: 19px;
+  font-weight: 500;
+  padding: 5px;
+  border: 2px solid rgb(137, 137, 137);
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+  color: rgb(0, 134, 89);
+  border: 2px solid rgb(0, 134, 89);
+}
+
+.apply-button {
+  background-color: rgb(215, 162, 0);
+  color: white;
+  font-size: 19px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border: 2px solid rgb(215, 162, 0);
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.apply-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(215, 162, 0);
+  transition: 200ms;
 }
 
 </style>

@@ -24,6 +24,11 @@ const props = defineProps({
   salary: {
     type: Number,
     required: true
+  },
+
+  level: {
+    type: String,
+    required: true
   }
 })
 
@@ -37,7 +42,8 @@ const props = defineProps({
         <h3>{{ props.company }}</h3>
       </div>
       <h1 style="margin: 10px 0 25px 0;">{{ props.position }}</h1>
-      <p style="display: flex;">Location:<h4> Remote anywhere 🌎 </h4></p>
+      <p style="display: flex;">Location:<h4 style="padding: 0 5px;"> Remote anywhere 🌎 </h4></p>
+      <p style="display: flex; padding: 2px 0;">Experiance:<h4 style="padding: 0 5px;"> {{ level }}</h4></p>
       <p style="display: inline;">salary: </p><h4 style="color: rgb(0, 134, 89); display: inline;">${{ props.salary }}k</h4>
       <br><br>
       <h3 style="display: inline; color: rgb(0, 134, 89);" v-for="skill in skills">[{{ skill }}] </h3>

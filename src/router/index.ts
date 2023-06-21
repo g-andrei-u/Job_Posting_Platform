@@ -32,7 +32,8 @@ const router = createRouter({
           company: job ? job.company : '',
           position: job ? job.position : '',
           salary: job ? job.salary : 0,
-          skills: job ? job.skills : []
+          skills: job ? job.skills : [],
+          level: job ? job.level : '',
         }
       }
     },

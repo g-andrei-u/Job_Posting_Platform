@@ -13,7 +13,8 @@ export const jobs = [
         company: 'Prospa',
         position: 'Backend Engineer',
         salary: 70,
-        skills: ['Python', 'API', 'Django']
+        skills: ['Python', 'API', 'Django'],
+        level: 'Mid'
     },
 
     {
@@ -22,7 +23,8 @@ export const jobs = [
         company: 'Legal',
         position: 'Frontend Engineer',
         salary: 85,
-        skills: ['React', 'Typescript', 'HTML/CSS']
+        skills: ['React', 'Typescript', 'HTML/CSS'],
+        level: 'Mid'
     },
 
     {
@@ -31,7 +33,8 @@ export const jobs = [
         company: 'Netflix',
         position: 'Fullstack Engineer',
         salary: 95,
-        skills: ['Java', 'PHP', 'C#']
+        skills: ['Java', 'PHP', 'C#'],
+        level: 'Mid'
     },
 
     {
@@ -40,7 +43,8 @@ export const jobs = [
         company: 'Netflix',
         position: 'Senior Frontend Engineer',
         salary: 85,
-        skills: ['Vue.js', 'Javascript', 'HTML/CSS']
+        skills: ['Vue.js', 'Javascript', 'HTML/CSS'],
+        level: 'Senior'
     },
 
     {
@@ -49,7 +53,8 @@ export const jobs = [
         company: 'Google',
         position: 'Tech Lead - Frontend Engineer',
         salary: 155,
-        skills: ['Angular', 'Goo', 'HTML/CSS']
+        skills: ['Angular', 'Goo', 'HTML/CSS'],
+        level: 'Senior'
     },
 
     {
@@ -58,7 +63,8 @@ export const jobs = [
         company: 'Meta',
         position: 'Junior Fullstack Engineer',
         salary: 105,
-        skills: ['React', 'PHP', 'C#']
+        skills: ['React', 'PHP', 'C#'],
+        level: 'Junior'
     },
 
     {
@@ -67,7 +73,8 @@ export const jobs = [
         company: 'Adidas',
         position: 'Full Stack Developer',
         salary: 75,
-        skills: ['Node.js', 'React', 'Java']
+        skills: ['Node.js', 'React', 'Java'],
+        level: 'Mid'
     },
 
     {
@@ -76,6 +83,7 @@ export const jobs = [
         company: 'Adidas',
         position: 'Senior Full Stack Developer',
         salary: 100,
-        skills: ['PHP', 'SQL', 'Node.js']
+        skills: ['PHP', 'SQL', 'Node.js'],
+        level: 'Senior'
     }
 ]

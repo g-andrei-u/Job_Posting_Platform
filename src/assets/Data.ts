@@ -85,5 +85,15 @@ export const jobs = [
         salary: 100,
         skills: ['PHP', 'SQL', 'Node.js'],
         level: 'Senior'
+    },
+
+    {
+        id: 9,
+        picture: google,
+        company: 'Google',
+        position: 'Intern Frontend',
+        salary: 45,
+        skills: ['Javascript', 'Typescript', 'Angular'],
+        level: 'Junior'
     }
 ]

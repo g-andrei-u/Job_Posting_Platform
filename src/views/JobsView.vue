@@ -104,22 +104,23 @@ createApp({
   <main :style="{overflowY: popupForm || popupFilters ? 'hidden' : 'visible'}" id="main">
     <div>
       <section class="second-header">
-        <div>
+        <div style="display: flex;">
           <button 
-          :style="{color: filterStyleColor, borderColor: filterStyleColor}" 
+          :style="{color: filterStyleColor, borderColor: filterStyleColor, display: 'flex', alignItems: 'center'}" 
           @mouseover="buttonStyleOver" 
           @mouseleave="buttonStyleNotOver"
           @click="setPopupFilters"
-          >Filters</button>
-          
+          > <v-icon name="io-filter" style="margin-right: 7px;"/>Filters</button>
+
           <button
           v-if="activeFilter" 
-          :style="{color: filterStyleColor, borderColor: filterStyleColor}"
+          :style="{color: filterStyleColor, borderColor: filterStyleColor, display: 'flex', alignItems: 'center'}"
           @click="cancelFiltered"
-          >Cancel Filter</button>
+          > <v-icon name="gi-cancel" scale="1" style="margin-right: 4px; color: red;"/>Cancel</button>
         </div>
         <div class="search-bar">
           <input type="text" v-model="text" placeholder="Search...">
+          <v-icon name="md-search" scale="1.2" style="position: relative; right: 25px; color: rgb(87, 87, 87);" />
         </div>
       </section>
 
@@ -267,7 +268,9 @@ createApp({
 }
 
 .search-bar {
-  margin: 0 70px;
+  margin: 0 50px 0 70px;
+  display: flex;
+  align-items: center;
 }
 
 .search-bar input {

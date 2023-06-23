@@ -12,10 +12,15 @@ const inputLevel = ref('');
 const popupForm = ref(false);
 const popupFilters = ref(false);
 const filterStyleColor = ref('rgb(122, 122, 122)');
+const borderColor = ref('rgb(137, 137, 137)');
 
 const searchSalary = ref(0);
 const searchLevel = ref('');
-const activeFilter = ref(false)
+const activeFilter = ref(false);
+
+const changeBorder = () => {
+  borderColor.value = 'red';
+}
 
 const filteredJobs = computed(() => {
 
@@ -59,7 +64,7 @@ const addingJob = () => {
     inputSalary.value = 0;
     inputSkills.value = ''; 
   } else {
-    alert("Please fill in all the required fields.");
+    changeBorder();
  }
 };
 
@@ -167,10 +172,10 @@ createApp({
 
          <form class="form-form">
           <label style="font-size: 20px;">Job Details</label>
-          <input v-model="inputCompany" class="input-text" type="text" placeholder="Company...">
-          <input v-model="inputJobPosition"  class="input-text" type="text" placeholder="Position...">
+          <input :style="{borderColor: borderColor}" v-model="inputCompany" class="input-text" type="text" placeholder="Company...">
+          <input :style="{borderColor: borderColor}" v-model="inputJobPosition"  class="input-text" type="text" placeholder="Position...">
           <input v-model="inputSalary"  class="input-text" type="number" placeholder="Salary...">
-          <input v-model="inputSkills" class="input-text" type="text" placeholder="Skills..." >
+          <input :style="{borderColor: borderColor}" v-model="inputSkills" class="input-text" type="text" placeholder="Skills..." >
           <br>
           <label style="font-size: 20px;">Experiance level</label>
           <div>
@@ -186,7 +191,7 @@ createApp({
             <label for="Senior">Senior</label>
           </div>
           <br>
-          <button class="button" @click="addingJob">Submit Job Post</button>
+          <button type="button" class="button" @click="addingJob">Submit Job Post</button>
         </form>
       </div>
     </div>

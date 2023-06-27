@@ -135,7 +135,7 @@ createApp({
           <div>
             <h4 style="font-weight: 500;">{{ job.company }}</h4>
             <h2 style="font-weight: 600;">{{ job.position }}</h2>
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center; flex-wrap: wrap;">
               <p style="color: rgb(0, 134, 89); background-color: #f9f9f9; padding: 2px 10px; border-radius: 15px; margin: 5px; font-weight: 500;">${{ job.salary }}k</p>
               <p v-for="skill in job.skills" style="background-color: #f9f9f9; padding: 2px 10px; border-radius: 15px; margin: 5px; font-weight: 500;">{{ skill }}</p>
             </div>
@@ -146,7 +146,7 @@ createApp({
       <section class="post-job">
         <div>
           <h1 style="margin-bottom: 8px;">Unlimited Job Posting</h1>
-          <p>💼 Placement in Arc job fairs</p>
+          <p>💼 Placement in job fairs</p>
           <p>💬 Unlimited candidate messaging</p>
           <p>📋 Company profile & branding</p>
           <button class="button" @click="setPopupForm">Post Jobs</button>
@@ -250,6 +250,7 @@ createApp({
 .second-header {
   background-color: white;
   position: fixed;
+  z-index: 1;
   top: 65px;
   width: 100%;
   height: 70px;
@@ -300,7 +301,7 @@ createApp({
 .job {
   background-color: white;
   color: black;
-  padding: 5px 10px;
+  padding: 6px 10px;
   display: flex;
   align-items: center;
   border-radius: 7px;
@@ -339,6 +340,7 @@ createApp({
 
 .form-popup {
   position: fixed;
+  z-index: 2;
   top: 7%;
   left: 20%;
   background-color: white;
@@ -390,6 +392,7 @@ createApp({
 
 .filters-popup {
   position: fixed;
+  z-index: 2;
   top: 15%;
   left: 30%;
   background-color: white;
@@ -441,6 +444,97 @@ createApp({
   background-color: white;
   color: rgb(215, 162, 0);
   transition: 200ms;
+}
+
+
+@media screen and (max-width: 750px) {
+
+  .search-bar {
+    margin: 0 10px 0 40px;
+  }
+
+  .search-bar input {
+    padding: 0 22px;
+    width: 250px;
+  }
+
+  .post-job {
+    position: absolute;
+    z-index: 0;
+    top: 150px;
+    left: 60px;
+    width: 79%;
+    height: 20vh;
+    padding: 10px 0;
+  }
+
+  .post-job h1 {
+    font-size: 27px;
+  }
+
+  .post-job p {
+    font-size: 18px;
+  }
+
+  .jobs {
+    width: 90%;
+    padding: 10px 25px;
+    margin: 350px 0px 0px 35px;
+  }
+
+  .job {
+    padding: 3px 5px;
+    margin: 30px 0;
+  }
+
+  .job img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .form-popup {
+    top: 16%;
+    left: 10%;
+    width: 80%;
+    height: 68%;
+  }
+
+  .form-job {
+    padding: 20px;
+  }
+
+  .form-description {
+    padding-right: 25px;
+  }
+
+  .form-form {
+    padding-left: 25px;
+  }
+
+  .input-text {
+    width: 80%;
+    height: 40px;
+  }
+
+  .filters-popup {
+    top: 25%;
+    left: 20%;
+    width: 60%;
+    height: 50%;
+  }
+
+  .filters {
+    padding: 0 35px;
+  }
+
+  .cancel-button {
+    padding: 10px;
+    margin: 0 15px;
+  }
+
+  .apply-button {
+    padding: 10px 15px;
+  }
 }
 
 </style>

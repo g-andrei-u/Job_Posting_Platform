@@ -23,4 +23,13 @@ Risk free to get started.</p>
   flex-direction: column;
   margin-top: 100px;
 }
+
+@media screen and (max-width: 750px) {
+
+  .about-page {
+    padding: 100px 15%;
+    margin-top: 50px;
+  }
+  
+}
 </style>

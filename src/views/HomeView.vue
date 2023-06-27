@@ -35,4 +35,20 @@
     width: 50%;
 }
 
+@media screen and (max-width: 750px) {
+
+    .home-page {
+      flex-direction: column-reverse;
+      padding: 200px 15px;
+    }
+
+    .home-page img {
+      width: 400px;
+    }
+
+    .home-desc {
+      width: 85%;
+    } 
+}
+
 </style>

@@ -76,4 +76,35 @@
     background-color: rgba(215, 161, 0, 0.3);
 }
 
+
+@media screen and (max-width: 750px) {
+    .header {
+    height: 100%;
+    justify-content: space-between;
+    padding: 5px 10px 5px 10px;
+    }
+
+    .about-button {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px;
+    margin: 0 5px;
+    }
+
+    .find-jobs-button {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px;
+    margin: 0 5px;
+    }
+
+    .home-button {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 7px;
+    border-radius: 7px;
+    margin: 0 5px;
+    }
+}
+
 </style>

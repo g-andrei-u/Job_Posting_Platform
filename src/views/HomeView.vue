@@ -5,8 +5,8 @@
 <template>
     <div class="home-page">
         <div class="home-desc">
-            <h1 style="font-size: 55px;">Remote Programming Jobs</h1>
-            <p style="font-size: 20px;">Find the best remote programming jobs around the world here on the Arc Developer Job Board. Search 100% WFH software developer jobs matching your time zone and skills at top companies and apply today!</p>
+            <h1>Remote Programming Jobs</h1>
+            <p>Find the best remote programming jobs around the world here on the Arc Developer Job Board. Search 100% WFH software developer jobs matching your time zone and skills at top companies and apply today!</p>
             <br>
             <RouterLink to="/jobs"><button style="font-size: 25px; width: 300px; height: 50px;" class="button">Post Job</button></RouterLink>
         </div>
@@ -35,6 +35,15 @@
     width: 50%;
 }
 
+.home-desc h1 {
+    font-size: 55px;
+} 
+
+.home-desc p {
+    font-size: 20px;
+} 
+
+
 @media screen and (max-width: 750px) {
 
     .home-page {
@@ -48,6 +57,29 @@
 
     .home-desc {
       width: 85%;
+    } 
+}
+
+@media screen and (max-width: 460px) {
+
+    .home-page {
+      padding: 120px 15px 190px 15px;
+    }
+
+    .home-page img {
+      width: 300px;
+    }
+
+    .home-desc {
+      width: 97%;
+    } 
+
+    .home-desc h1 {
+    font-size: 40px;
+    } 
+
+    .home-desc p {
+    font-size: 17px;
     } 
 }
 

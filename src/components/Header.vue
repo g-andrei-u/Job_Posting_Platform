@@ -5,7 +5,7 @@
 <template>
     <div class="header">
         <div>
-            <h1 style="font-weight: 400; font-size: 40px;">Jobs{}</h1>
+            <h1 style="font-weight: 400">Jobs{}</h1>
             <h3></h3>
         </div>
         <nav>
@@ -17,6 +17,10 @@
 </template>
 
 <style scoped>
+
+h1 {
+    font-size: 40px;
+}
 
 .header {
     box-sizing: border-box;
@@ -79,32 +83,55 @@
 
 @media screen and (max-width: 750px) {
     .header {
-    height: 100%;
-    justify-content: space-between;
-    padding: 5px 10px 5px 10px;
+      padding: 5px 10px 5px 10px;
     }
 
     .about-button {
-    font-size: 17px;
-    font-weight: 500;
-    padding: 5px;
-    margin: 0 5px;
+      font-size: 17px;
+      padding: 5px;
+      margin: 0 5px;
     }
 
     .find-jobs-button {
-    font-size: 17px;
-    font-weight: 500;
-    padding: 5px;
-    margin: 0 5px;
+      font-size: 17px;
+      padding: 5px;
+      margin: 0 5px;
     }
 
     .home-button {
-    font-size: 17px;
-    font-weight: 500;
-    padding: 7px;
-    border-radius: 7px;
-    margin: 0 5px;
+      font-size: 17px;
+      padding: 7px;
+      margin: 0 5px;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .header {
+      padding: 5px 3px 5px 8px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+    }
+
+    .about-button {
+      font-size: 16px;
+      padding: 5px;
+      margin: 0 4px;
+    }
+
+    .find-jobs-button {
+      font-size: 16px;
+      padding: 5px;
+      margin: 0 4px;
+    }
+
+    .home-button {
+      font-size: 16px;
+      padding: 7px;
+      margin: 0 4px;
+    }
+}
+
 
 </style>

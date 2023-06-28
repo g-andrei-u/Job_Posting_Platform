@@ -537,4 +537,141 @@ createApp({
   }
 }
 
+
+@media screen and (max-width: 460px) { 
+
+  .second-header {
+    padding-left: 20px;
+  }
+
+  .search-bar {
+    margin: 0 10px 0 20px;
+  }
+
+  .search-bar input {
+    padding: 0 20px;
+    width: 200px;
+  }
+
+  .post-job {
+    top: 150px;
+    left: 35px;
+    width: 85%;
+    height: 23vh;
+    padding: 8px 0;
+  }
+
+  .post-job h1 {
+    font-size: 25px;
+  }
+
+  .post-job p {
+    font-size: 17px;
+  }
+
+  .jobs {
+    width: 97%;
+    padding: 10px 30px;
+    margin: 350px 0px 0px 15px;
+  }
+
+  .job {
+    padding: 3px 2px;
+    margin: 30px 0;
+  }
+
+  .form-popup {
+    top: 15%;
+    left: 5%;
+    width: 90%;
+    height: 70%;
+  }
+
+  .form-job {
+    grid-template-columns: 1fr;
+    grid-template-rows: 7% 1fr 1fr;
+    padding: 15px;
+  }
+
+  .form-description {
+    padding-right: 0px;
+    display: none;
+  }
+
+  .form-form {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .form-form label {
+    font-size: 20px;
+  }
+
+  .input-text {
+    width: 90%;
+    height: 45px;
+  }
+
+  .filters-popup {
+    top: 22.5%;
+    left: 10%;
+    width: 80%;
+    height: 55%;
+  }
+}
+
+
+@media screen and (max-width: 390px) { 
+
+.second-header {
+  padding-left: 8px;
+}
+
+.search-bar {
+  margin: 0 10px 0 10px;
+}
+
+.search-bar input {
+  padding: 0 15px;
+  width: 190px;
+}
+
+.post-job {
+  left: 30px;
+  height: 24vh;
+  padding: 5px 0;
+}
+
+.post-job h1 {
+  font-size: 23px;
+}
+
+.post-job p {
+  font-size: 16px;
+}
+
+.jobs {
+  width: 98%;
+  padding: 10px 20px;
+  margin: 350px 0px 0px 12px;
+}
+
+.form-popup {
+  top: 6%;
+  height: 88%;
+}
+
+.form-job {
+  grid-template-rows: 5% 1fr 1fr;
+}
+
+.filters-popup {
+  top: 17.5%;
+  left: 2.5%;
+  width: 95%;
+  height: 65%;
+}
+}
+
+
 </style>

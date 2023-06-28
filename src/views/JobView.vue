@@ -103,6 +103,35 @@ const props = defineProps({
   grid-column: 2/3;
   margin: 0 0 10px 25px;
 }
+
+@media screen and (max-width: 600px) {
+
+  .job-page {
+    padding: 80px 20px 50px 10px;
+    grid-template-rows: 40% 70%;
+    grid-template-columns: 1fr;
+  }
+
+  .job-stats {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    border-right: 0px;
+    margin: 0 0 0 25px;
+  }
+
+  .job-stats img {
+  border-radius: 50%;
+  width: 75px;
+  margin: 0 10px 0 0;
+  }
+
+  .job-desc {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  margin: 0 0 10px 25px;
+  }
+  
+}
 </style>
   
   

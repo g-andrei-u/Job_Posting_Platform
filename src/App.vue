@@ -1,14 +1,29 @@
 <script setup lang="ts">
+import { createApp, ref } from "vue";
 import { RouterView } from 'vue-router'
 import Header from './components/Header.vue';
+import loginPage from './components/LoginPage.vue';
+
+const login= ref(true);
+
+const logIn = () => {
+  login.value= false;
+}
+
+createApp({
+  data() {
+      login
+  },
+}).mount("#app")
 </script>
 
 <template>
   <div id="app">
-  <header>
+  <loginPage v-if="login === true" :logIn="logIn" />
+  <header v-if="login === false">
     <Header />
   </header>
-  <RouterView />
+  <RouterView v-if="login === false" />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="about-page">
-    <h1>This is an about page</h1>
+    <h1>About Us</h1>
     <br>
     <p style="font-size: 18px;">We believe you don't have to live in a tech hub to do great work. Great talent is everywhere — and we’re here to match this talent with great organizations looking for their skills!
 While every single member is capable of creating great things, we know that we're stronger as a team.</p>

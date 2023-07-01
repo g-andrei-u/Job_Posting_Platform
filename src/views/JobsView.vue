@@ -14,12 +14,22 @@ const popupFilters = ref(false);
 const filterStyleColor = ref('rgb(122, 122, 122)');
 const borderColor = ref('rgb(137, 137, 137)');
 
-const searchSalary = ref(0);
+const searchSalary = ref('');
 const searchLevel = ref('');
 const activeFilter = ref(false);
 
 const changeBorder = () => {
   borderColor.value = 'red';
+}
+
+const filterSalary = () => {
+  if (searchSalary.value === "low") {
+    return 0;
+  } else if (searchSalary.value === "medium") {
+    return 50;
+  } else {
+    return 100;
+  }
 }
 
 const filteredJobs = computed(() => {
@@ -31,7 +41,8 @@ const filteredJobs = computed(() => {
     )
   }  else {
     return jobs.filter(job => 
-    job.level.toLowerCase().includes(searchLevel.value.toLowerCase()))
+    job.level.toLowerCase().includes(searchLevel.value.toLowerCase()) &&
+    job.salary >= filterSalary())
   }
 });
 
@@ -167,14 +178,17 @@ createApp({
           <br>
           <h4 style="color: rgb(0, 134, 89);">👍 Only 2.3% pass our technical & behavioral assessments.</h4>
           <br><br><br><br><br>
-          <p style="font-size: 12px; color: rgb(90, 90, 90);">By creating an account, I agree to receive Jobs{} communications via email, and agree with the Arc Terms of Service, Privacy Policy, and Cookie Policy. I understand that I can unsubscribe at any time.</p>
+          <p style="font-size: 12px; color: rgb(90, 90, 90);">By creating an post, I agree to receive Jobs{} communications via email, and agree with the Terms of Service, Privacy Policy, and Cookie Policy. I understand that I can unsubscribe at any time.</p>
         </div>
 
          <form class="form-form">
           <label style="font-size: 20px;">Job Details</label>
           <input :style="{borderColor: borderColor}" v-model="inputCompany" class="input-text" type="text" placeholder="Company...">
           <input :style="{borderColor: borderColor}" v-model="inputJobPosition"  class="input-text" type="text" placeholder="Position...">
-          <input v-model="inputSalary"  class="input-text" type="number" placeholder="Salary...">
+          <div style="display: flex; flex-direction: column; margin: 5px 0;">
+            <label style="font-size: 13px;" for="salary">Salary (in k)</label>
+            <input v-model="inputSalary"  class="input-text" type="number" name="salary" placeholder="Salary...">
+          </div>
           <input :style="{borderColor: borderColor}" v-model="inputSkills" class="input-text" type="text" placeholder="Skills..." >
           <br>
           <label style="font-size: 20px;">Experiance level</label>
@@ -217,11 +231,11 @@ createApp({
           <label style="font-size: 20px;">Salary Range</label>
           <div>
             <input v-model="searchSalary" type="radio" id="low" name="salary" value="low">
-            <label for="low"> 0k - 50k</label>
+            <label for="low"> 0k ++</label>
           </div>
           <div>
             <input v-model="searchSalary" type="radio" id="medium" name="salary"  value="medium">
-            <label for="medium"> 50k - 100k</label>
+            <label for="medium"> 50k ++</label>
           </div>
           <div>
             <input v-model="searchSalary" type="radio" id="high" name="salary"  value="high">
@@ -621,7 +635,7 @@ createApp({
 }
 
 
-@media screen and (max-width: 390px) { 
+@media screen and (max-width: 395px) { 
 
 .second-header {
   padding-left: 8px;
